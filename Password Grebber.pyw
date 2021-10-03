@@ -54,9 +54,12 @@ def paste(window: tk.Tk, string_var: tk.StringVar, log: tk.Label) -> None:
     :return: None
     """
 
-    clipboard_key = window.clipboard_get()
-    string_var.set(clipboard_key)
-    logger(log, lang.pasted_log.format(repr(clipboard_key)))
+    try:
+        clipboard_key = window.clipboard_get()
+        string_var.set(clipboard_key)
+        logger(log, lang.pasted_log.format(repr(clipboard_key)))
+    except:
+        logger(log, lang.empty_clipboard_log)
 
 
 def generate(window: tk.Tk, string_var: tk.StringVar, mode: tk.IntVar, log: tk.Label) -> None:
@@ -73,10 +76,14 @@ def generate(window: tk.Tk, string_var: tk.StringVar, mode: tk.IntVar, log: tk.L
     gen_key = string_var.get()
     if not gen_key:
         paste(window, string_var, log)
-    gen_key = core.generate(gen_key, mode.get())
-    window.clipboard_clear()
-    window.clipboard_append(gen_key)
-    logger(log, lang.generation_log.format(repr(string_var.get()), repr(core.modes[mode.get()])))
+        gen_key = string_var.get()
+    if gen_key:
+        gen_key = core.generate(gen_key, mode.get())
+        window.clipboard_clear()
+        window.clipboard_append(gen_key)
+        logger(log, lang.generation_log.format(repr(string_var.get()), repr(core.modes[mode.get()])))
+    else:
+        logger(log, lang.empty_key_log)
 
 
 def main() -> None:

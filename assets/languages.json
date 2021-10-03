@@ -7,6 +7,14 @@
     "en_GB": "Generated password for key {0}, mode {1}.",
     "fr_FR": "Mot de passe pour la clé {0}, mode {1} généré."
   },
+  "empty_clipboard_log":{
+    "en_GB": "Error: empty clipboard or without text.",
+    "fr_FR": "Erreur : presse-papier vide ou sans texte."
+  },
+  "empty_key_log": {
+    "en_GB": "Error: empty key given.",
+    "fr_FR": "Erreur : clé vide donnée."
+  },
   "app_name": {
     "en_GB": "Password Grebber",
     "fr_FR": "Password Grebber"
