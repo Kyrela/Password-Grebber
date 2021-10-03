@@ -56,10 +56,13 @@ and press enter or click on the `generate/copy` button. The generated password i
 
 ![screenshot of the program](https://hosting.webspell.fr/images/2021/10/03/e95416f2a1c4f9379d48980d738f80e3.png)
 
+*Pro tip: you don't have to paste the key or click on the paste button manually, because if the text field is empty,
+your clipboard content will be automatically pasted!*
+
 ### Auto
 
 This program is intended to be mapped as a keyboard shortcut or macro key, and only works with the first mode.
-copy the key, launch the program, and the generated password will automatically be written !
+copy the key, launch the program, and the generated password will automatically be written!
 (Note: It may not work on Linux)
 
 ## Contribute
