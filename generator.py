@@ -15,9 +15,9 @@ def generate(key: str, mode=0) -> str:
     """
     Generate a password according to the given key, for the specified mode
 
-    :param key:
-    :param mode:
-    :return:
+    :param key: The key used to generate the password
+    :param mode: The generation mode
+    :return: the generated password
     """
 
     if mode == 0:
