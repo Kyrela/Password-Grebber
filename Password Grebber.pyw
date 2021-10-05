@@ -121,19 +121,18 @@ def main() -> None:
     radio_frame.pack()
 
     mode = tk.IntVar(value=0)
-
+    radio_buttons = []
     for index, elem in enumerate(core.modes):
-        ttk.Radiobutton(radio_frame, text=elem, variable=mode, value=index).pack(fill=tk.X)
+        radio_buttons.append(ttk.Radiobutton(radio_frame, text=elem, variable=mode, value=index))
+        radio_buttons[index].pack(fill=tk.X)
 
     button_frame = tk.Frame(body)
     button_frame.pack(pady=30)
 
-    ttk.Button(
-        button_frame, text=lang.generation_button, command=partial(generate, window, string_var, mode, log), width=15
-    ).pack(side="left", padx=15)
-    ttk.Button(
-        button_frame, text=lang.paste_button, command=partial(paste, window, string_var, log), width=15
-    ).pack(side="right", padx=15)
+    generation_button = ttk.Button(button_frame, text=lang.generation_button, command=partial(generate, window, string_var, mode, log), width=15)
+    generation_button.pack(side="left", padx=15)
+    paste_button = ttk.Button(button_frame, text=lang.paste_button, command=partial(paste, window, string_var, log), width=15)
+    paste_button.pack(side="right", padx=15)
 
     def on_key_press(event: tk.Event) -> None:
         """
@@ -142,9 +141,19 @@ def main() -> None:
         :param event: the pressed key
         :return: None
         """
+        if event.char != "\n" and event.char != "\r":
+            return
 
-        if event.char == "\n" or event.char == "\r":
+        f = window.focus_get()
+
+        if f == text_field or f == generation_button:
             generate(window, string_var, mode, log)
+        elif f == paste_button:
+            paste(window, string_var, log)
+        else:
+            for index, elem in enumerate(radio_buttons):
+                if f == elem:
+                    mode.set(index)
 
     window.bind('<KeyPress>', on_key_press)
 
