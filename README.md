@@ -1,5 +1,5 @@
 <br>
-<div style="text-align:center"><img alt="image" height="150" src="https://hosting.webspell.fr/images/2021/09/29/53db295f088f1d1cf51e2a111f7336c4.png" width="150"/>
+<div style="text-align:center"><img alt="image" height="150" src="assets/logo.png" width="150"/>
 <h1>Password Grebber</h1></div><br>
 
 
