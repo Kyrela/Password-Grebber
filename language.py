@@ -4,7 +4,7 @@ Handle the multi-language system
 
 import json
 import os
-from collections import Iterable
+from collections.abc import Iterable
 
 
 class Language(dict):
